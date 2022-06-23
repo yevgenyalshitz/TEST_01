@@ -32,20 +32,18 @@ while True:
                 # sign hand center position
                 if id == 0:
                     cv2.circle(img, (cx,cy), 10, (255,0,255), cv2.FILLED)
-
-                # sign thumb position
-                if id == 4:
-                    cv2.circle(img, (cx,cy), 10, (0,255,0), cv2.FILLED)
+                # # sign thumb position
+                # if id == 4:
+                #     cv2.circle(img, (cx,cy), 10, (0,255,0), cv2.FILLED)
 
 
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
 
+
     cTime = time.time()
-    fps = 1/(cTime-pTime)
+    fps = 1 / (cTime - pTime)
     pTime = cTime
-
-    cv2.putText(img, str(int(fps)), (10,70), cv2.FONT_HERSHEY_PLAIN, 3, (255,0,255), 3)
-
+    cv2.putText(img, 'fps=' + str(int(fps)), (10,70), cv2.FONT_HERSHEY_PLAIN, 3, (255,0,255), 3)
 
     # cv2.imshow("Image", imgGrey)
     cv2.imshow("Image", img)
