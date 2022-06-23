@@ -1,8 +1,6 @@
 import cv2
-import mediapipe as mp
 import time
 import PoseEstimationModule as pem
-
 
 pTime = 0
 cTime = 0
@@ -12,6 +10,8 @@ while True:
     success, img = cap.read()
     img = detector.findPose(img)
     lmList = detector.findPosition(img, draw=False)
+    if len(lmList) != 0:
+        print(lmList[14])
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
